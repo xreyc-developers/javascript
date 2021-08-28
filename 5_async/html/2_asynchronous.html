@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="demo"></div>
+    <script>
+      function myDisplayer(some) {
+        document.getElementById("demo").innerHTML = some;
+      }
+
+      function getFile(myCallback) {
+        let req = new XMLHttpRequest();
+        req.open('GET', "mycar.html", true);
+        req.onload = function() {
+          if (req.status == 200) {
+            myCallback(this.responseText);
+          } else {
+            myCallback("Error: " + req.status);
+          }
+        }
+        req.send();
+      }
+
+      getFile(myDisplayer);
+    </script>
+  </body>
+</html>
