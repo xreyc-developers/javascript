@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBJECT - INHERITANCE3</title>
+</head>
+<body>
+  <script type="text/javascript">
+  /**
+   * OBJECT PROPERTY VS PROTOTYPE
+   * when running an object, the code looks on the object PROPERTY first before the prototype PROPERTY
+   */
+
+  /**
+   * CONSTRUCTOR FUNCTION
+   */
+  function Person1() {
+      this.firstname = 'Reyco';
+      this.lastname = 'Seguma';
+  }
+
+  // INHERIT THE OBJECT CONSTRUCTOR
+  // Person2 can have its own property
+  console.log('[INHERIT OBJECT CONSTRUCTOR]');
+  function Person2() {
+      Person1.call(this);
+      this.course = 'Bachelor of Electronics Engineering';
+  }
+  Person1.prototype.fullName = function() {
+      return this.firstname + ' ' + this.lastname + ' - Person1';
+  }
+
+  // INHERIT PROTOTYPE
+  console.log('[INHERIT PROTOTYPE]');
+
+  // Person2 only inherits the method from the prototype of Person1
+  // but the constructor is pointed to the Person1
+  Person2.prototype = Object.create(Person1.prototype); // This is no longer referenced
+
+  // In order to have its own constructor
+  Person2.prototype.constructor = Person2;
+
+  const personA = new Person1();
+  const personB = new Person2();
+
+  console.log(personA);
+  console.log(personB);
+  console.log(personA.fullName()); //Reyco Seguma - Person1
+  console.log(personB.fullName()); //Reyco Seguma - Person1
+
+  // [REFERENCE]: Person2.prototype = Person1.prototype
+  console.log('[OVERRIDE INHERITED PROTOTYPE]');
+  Person2.prototype.fullName = function() {
+      return this.firstname + ' ' + this.lastname + ' - Person2';
+  }
+  console.log(personA);
+  console.log(personB);
+  console.log(personA.fullName()); //Reyco Seguma - Person1
+  console.log(personB.fullName()); //Reyco Seguma - Person2
+
+
+  console.log(function(){})
+  </script>
+</body>
+</html>
