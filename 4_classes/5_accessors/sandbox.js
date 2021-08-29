@@ -1,0 +1,114 @@
+/**
+ * GETTER
+ */
+const person1 = {
+    firstname: 'Reyco',
+    lastname: 'Seguma',
+    language: 'Illongo',
+    get lang() {
+        return this.language;
+    }
+}
+console.log(person1.lang)
+
+/**
+ * SETTER
+ */
+ const person2 = {
+    firstname: 'Reyco',
+    lastname: 'Seguma',
+    language: 'Illongo',
+    set lang(lang) {
+        this.language = lang;
+    }
+}
+
+person2.lang = 'Ilocano';
+console.log(person2.language)
+
+
+/**
+ * ACCESSORS 
+ * - are commonly used for data quality
+ * - commonly used behind-the-scene task
+ * 
+ */
+
+
+/**
+ * OBJECT.DEFINEPROPERTY
+ * Object.defineProperty(OBJECT, PROPERTY, DESCRIPTOR)
+ * OBJECT     : is which we will define the property : syntax {}
+ * PROPERTY   : the name of the property :  syntax text
+ * DESCRIPTOR : the functionality of the property. syntax { decriptor }
+ * 
+ * DESCRIPTOR
+ * configurable : default to false (can be change to enumerable, writable or deletable property)
+ * enumerable   : default to false (if this will appear on enumeration of property)
+ * value        : the value if the property is not a method or accessor
+ * writable     : default to false (if the value can be change)
+ * 
+ * ACCESSOR DESCRIPTOR
+ * get (the get equivalent of the object)
+ * set (the set equibalent of the object)
+ */
+
+
+
+/**
+ * DEFINING A STRING/NUMBER/BOOLEAN
+ */
+const person3 = {
+    firstname: 'Reyco',
+    lastname: 'Seguma'
+}
+
+Object.defineProperty(person3, 'course', {
+    value: 'Electronic Engineer'
+})
+console.log(person3.course)
+
+// COMPLETE SYNTAX
+Object.defineProperty(person3, 'language', {
+    configurable: false,
+    enumerable: false,
+    value: 'Tagalog',
+    writable: false // if this is true the value of the property can be change
+})
+
+// writable = false
+person3.language = 'XXX';
+console.log(person3.language); // Tagalog
+
+// enumerable = false
+console.log(Object.keys(person3)) //['firstname', 'lastname']
+
+// configurable = false
+delete person3.language
+console.log(person3.language) // Tagalog
+
+/**
+ * DEFINING A GETTER AND SETTER
+ */
+ const person4 = {
+    firstname: 'Reyco',
+    lastname: 'Seguma',
+    language: 'English'
+}
+
+// GET
+Object.defineProperty(person4, 'lang', {
+    get: function() {
+        return this.language
+    }
+})
+console.log(person4.lang) // English
+
+// SET
+Object.defineProperty(person4, 'changeLang', {
+    set: function(lang) {
+        this.language = lang
+    }
+})
+person4.changeLang = 'German'
+console.log(person4.language) // German
