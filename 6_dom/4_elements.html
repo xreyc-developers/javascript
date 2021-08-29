@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ELEMENTS</title>
+  </head>
+  <body>
+
+    <h3>FINDING ELEMENT</h3>
+    <div id="A"></div>
+    <span></span>
+    <div class="A"></div>
+    <div class="B"></div>
+
+    <h3>FINDING ELEMENT INSIDE ANOTHER ELEMENT</h3>
+    <div id="C">
+      <p></p>
+    <div>
+
+    <script type="text/javascript">
+      /*
+      ## FINDING HTML ELEMENT
+      - by id
+      - by tag name
+      - by class name
+      - by css selectors
+      - by html object collections
+      */
+
+      // BY ID
+      const byId = document.getElementById('A');
+      byId.innerHTML = "Append By - Id";
+
+      // BY TAG NAME
+      const byTagName = document.getElementsByTagName('span');
+      byTagName[0].innerHTML = "Append By - TagName";
+
+      // BY CLASSNAME
+      const byClassName = document.getElementsByClassName("A");
+      byClassName[0].innerHTML = "Append By - ClassName"
+
+      // BY CSS SELECTORS
+      const byCSSSelectors = document.querySelectorAll("div.B");
+      byCSSSelectors[0].innerHTML = "Append By - CSSSelector"
+
+      // FIND ELEMENT INSIDE ANOTHER SELECTION
+      const byId2 = document.getElementById('C');
+      const byTagNameInsideById = byId2.getElementsByTagName('p');
+      byTagNameInsideById[0].innerHTML = "Append By - TagName inside Id";
+
+
+    </script>
+  </body>
+</html>

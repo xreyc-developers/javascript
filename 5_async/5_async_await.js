@@ -60,6 +60,10 @@ d.then(
 // ASYNCHRONOUS ACTIONS INSIDE A FUNCTION SOMETIMES DOES NOT RETURN EMEDIATE
 // RESULT AND WE NEED A RESULT FOR A SPECIFIC CALCULATIONS.
 // AWAIT MAKES IT POSIBLE WITHOUT USING THE THEN() METHOD
+// (WAITING FOR A RESULT WORKS ONLY INSIDE A FUNCTION)
+// (USING THE USING THE FUNCTION RETURN AWAIT RESULT INSIDE WILL NOT RETURN THE AWAIT RESULT)
+
+// SAMPLE 6
 async function function4() {
   let e = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -70,4 +74,42 @@ async function function4() {
   let d = await e;
   console.log(d); // SAMPLE6
 }
-function4()
+function4();
+
+// SAMPLE 7 (WITHOUT AWAIT)
+async function function5() {
+  let e = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('SAMPLE7')
+    },3000)
+  });
+  return e;
+}
+console.log(function5()); // Promise { <pending> }
+// YOU HAVE TO USE THEN TO RETURN VALUE
+function5().then(
+  (value) => {
+    console.log(value);
+  }
+)
+// Result: SAMPLE7
+
+// SAMPLE 8 WITH AWAIT
+async function function6() {
+  let e = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('SAMPLE8')
+    },3000)
+  });
+  let f = await e;
+  // getting emediate result of a promise with await works only inside the function
+  console.log(f); // SAMPLE8
+  return f;
+}
+console.log(function6()); // Promise { <pending> }
+function6().then(
+  (value) => {
+    console.log(value);
+  }
+)
+// Result: SAMPLE8

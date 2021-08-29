@@ -1,0 +1,51 @@
+DOM (Document Object Model)
+- when the page is loaded, the browser creates a DOM of the page.
+- constructed as tree of object
+
+HTML DOM Tree of Objects
+================================================================================
+                        +-----------+
+                        |  Document |
+                        +-----+-----+
+                              |
+                       +------+-------+
+                       | Root element |
+                       +------+-------+
+                              |
+              +---------------+---------------+
+              |                               |
+          +---+---+                       +---+---+
+          | Head  |                       | Body  |---------------+
+          +-------+                       +---+---+               |
+              |                               |                   |
+          +---+---+       +------------+   +--+--+       +--------+-------+
+          | Title |       | Attributes |---| <a> |       | Other Elements |
+          +-------+       +------------+   +--+--+       +--------+-------+
+              |                               |                   |
+          +---+---+                       +---+---+      +----------------+
+          | Text  |                       | Text  |      | Child Elements |
+          +-------+                       +-------+      +----------------+
+================================================================================
+
+With HTML DOM, Javascript gets all the power it needs to create dynamic HTML.
+# CAN CHANGE
+- elements in the page
+- attributes in the page
+- css styles in the page
+# CAN REMOVE
+- elements
+- attributes
+# CAN ADD/CREATE
+- elements
+- attributes
+- html events
+# CAN REACT
+- html events
+# CAN CREATE
+
+- DOM is a W3C (World Wide Web Consortium) standard
+
+The W3C DOM standard is separated into 3 different parts:
+- Core DOM - standard model for all document types
+- XML DOM - standard model for XML documents
+- HTML DOM - standard model for HTML documents
