@@ -17,6 +17,15 @@
       <p></p>
     <div>
 
+    <h3>FINDING ELEMENT BY OBJECT COLLECTIONS</h3>
+    <div class="D">
+      <p>CONTENT1</p>
+      <p>CONTENT2</p>
+      <p>CONTENT3</p>
+      <p>CONTENT4</p>
+      <p>CONTENT5</p>
+    </div>
+
     <script type="text/javascript">
       /*
       ## FINDING HTML ELEMENT
@@ -48,6 +57,19 @@
       const byTagNameInsideById = byId2.getElementsByTagName('p');
       byTagNameInsideById[0].innerHTML = "Append By - TagName inside Id";
 
+      // BY OBJECT COLLECTIONS
+      const byObjectCollection = document.querySelectorAll('div.D>p');
+      for(let i = 0; i < byObjectCollection.length; i++) {
+        console.log(byObjectCollection[i].innerText);
+      }
+      /*
+      RESULT:
+      CONTENT1
+      CONTENT2
+      CONTENT3
+      CONTENT4
+      CONTENT5
+      */
 
     </script>
   </body>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>EVENT LISTENER</title>
+    <style media="screen">
+      .square {
+        height: 300px;
+        width: 300px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h3>USING THE addEventListener() method</h3>
+    <div id="A" class="square"><div>
+
+
+    <script type="text/javascript">
+    /*
+    In the previous chapter we use the current element to get its object.
+    No we are going too get the EVENT Object.
+    We can get the event object in different ways.
+    - the problem with the previous approach is that if you want to add more than
+    one event listener on the html dom, things might get bloated
+    <div onmouseover="updateElementOnOver(this)" onmouseout="updateElementOnOut(this)" and ... >NOT OVER ME</div>
+
+    Object - is the a list of inteactions being made by the user.
+
+    ## USING THE addEventListener() method
+    SYNTAX: element.addEventListener(event, callback, useCapture
+    event - the interactions used
+    callback - receives the only the event argument
+    useCapture - (default to false)
+
+    ## Bubbling (default) or Capturing
+    scenario if you have a <p> inside a <div>
+    <div><p></p></div>
+    - if you add event listener on both <p> and <div>
+    the innermost element will be handled first and this is called (Bubbling)
+    - on addEventListener() you can set the the useCapture to true
+    so that the order of event handling will be parent before child.
+
+    Bubbling (child first) (default)
+    Capturing (Parent first)
+    */
+
+    // USING addEventListener() and removeEventListener()
+    // you can add multiple event on the element
+    // this would make the HTML cleaner
+    const a = document.getElementById('A');
+    const x = "Hwllo"
+    a.addEventListener("click",(eventArg) => {
+      console.log(eventArg);
+      const r = Math.trunc(Math.random() * 255);
+      const g = Math.trunc(Math.random() * 255);
+      const b = Math.trunc(Math.random() * 255);
+      const bg = `rgb(${r},${g},${b})`;
+      a.style.background = bg;
+      a.removeEventListener("mouseout",() => {
+        a.innerHTML = "Removed mouseout";
+        console.log("REMOVED MOUSEOUT");
+      })
+    });
+    a.addEventListener("mouseover", (eventArg) => {
+      console.log(eventArg);
+      a.innerHTML = `<div>ClientX: ${eventArg.clientX}</div><div>ClientY: ${eventArg.clientY}</div>`
+    })
+    a.addEventListener("mouseout", (eventArg) => {
+      console.log(eventArg);
+    })
+
+    </script>
+  </body>
+</html>

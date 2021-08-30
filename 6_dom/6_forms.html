@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FORMS</title>
+  </head>
+  <body>
+
+    <!--GET FORM INPUT VALUE-->
+    <h3>GET FORM VALUE</h3>
+    <form name="form1" method="post">
+      <input type="text" name="name">
+      <input type="submit" value="Submit" onclick="validateForm()">
+    </form>
+
+    <!--HTML BUILT-IN FORM VALIDATION-->
+    <h3>HTML BUILT-IN FORM VALIDATION</h3>
+    <form name="form2" method="post">
+      <input type="text" name="fname" required>
+      <input type="submit" value="Submit">
+    </form>
+
+    <script type="text/javascript">
+    // GET FORM INPUT VALUE
+    function validateForm() {
+      let a = document.forms["form1"]["name"].value;
+      console.log(a);
+    }
+
+    /*
+    ## TYPICAL VALIDATION
+    - required fields
+    - valid date
+    - text or numeric field
+
+    ## VALIDATION TYPE
+    - server side validation
+    - client side validation
+
+    ## HTML CONSTRAINT VALIDATION
+    - HTML input attributes
+    - CSS pseudo selectors
+    - DOM properties and methods
+
+    ## HTML INPUT ATTRIBUTES
+    disabled            input element should be disabled
+    max                 maximum value of an input element
+    min                 minimum value of an input element
+    pattern             specific patter
+    required            mandatory
+    type                type of input element
+
+    ## CSS PSEUDO SELECTORS
+    :disabled
+    :invalid
+    :optional
+    :required
+    :valid
+    */
+    </script>
+  </body>
+</html>

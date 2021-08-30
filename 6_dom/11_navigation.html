@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>NAVIGATION</title>
+  </head>
+  <body>
+
+    <!--This example does not contain text but text node with value DOM tutorial-->
+    <!--To access the value text node can be accessed by innerHTML-->
+    <h3>TEXT NODE</h3>
+    <div id="A">REYCO SEGUMA</div>
+
+    <script type="text/javascript">
+    /*
+    ## DOM NODES
+    document node                  - the entire document
+    html node                      - html element
+    text node                      - text inside html element
+    attribute node (deprecated)    - html attribute
+    comments node                  - all comments
+
+    ## NODE RELATIONSHIPS
+    - root (the top node)(has no parent)
+    - parent (has one or many child)
+    - child (has one parent and none or many siblings)
+    - siblings (node on the same parent)
+
+    ## NAVIGATING BETWEEN NODES
+    - parentNode
+    - childNodes[nodenumber]
+    - firstChild
+    - lastChild
+    - nextSibling
+    - previousSibling
+
+    document = html document/file
+    */
+
+    // GET TEXT NODE VALUE
+    const a = document.getElementById('A').innerHTML;
+    console.log(a); // REYCO SEGUMA
+
+    // firstChild
+    // innerHTML = nodeValue
+    const a1 = document.getElementById('A').firstChild.nodeValue;
+    console.log(a1); // REYCO SEGUMA
+
+    // childNodes[0] = firstChild
+    const a2 = document.getElementById('A').childNodes[0].nodeValue;
+    console.log(a2); // REYCO SEGUMA
+
+    // ROOT NODES
+    // document.body
+    // document.documentElement
+
+    // nodeName property
+    // nodeName is read only
+    // nodeName of ELEMENT is same to tag name
+    // nodeName of ATTRIBUTE is the attribute name
+    // nodeName of TEXT NODE is always #text
+    // nodeName of DOCUMENT NODE is always #document
+    // (nodeName always contains the uppercase tagname)
+    const a3 = document.getElementById('A');
+    console.log(a3.nodeName); // DIV (TAG NAME)
+    console.log(a3.attributes[0].nodeName); // id (ATTRIBUTES NODE)
+    console.log(a3.firstChild.nodeName); // #text (TEXT  NODE)
+    console.log(document.nodeName); // #document (DOCUMENT NODE)
+
+    // nodeType property
+    // Node 	               Type 	  Example
+    // ELEMENT_NODE 	       1 	      <h1 class="heading">W3Schools</h1>
+    // ATTRIBUTE_NODE 	     2 	      class = "heading" (deprecated)
+    // TEXT_NODE 	           3 	      W3Schools
+    // COMMENT_NODE 	       8 	      <!-- This is a comment -->
+    // DOCUMENT_NODE 	       9 	      The HTML document itself (the parent of <html>)
+    // DOCUMENT_TYPE_NODE 	 10 	    <!Doctype html>
+    console.log(a3.nodeType); // 1
+    console.log(a3.attributes[0].nodeType); // 2
+    console.log(a3.firstChild.nodeType); // 3
+    console.log(document.nodeType); // 9
+    </script>
+  </body>
+</html>

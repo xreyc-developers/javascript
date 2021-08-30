@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>EVENTS</title>
+    <style media="screen">
+      .square {
+        height: 300px;
+        width: 300px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body onload="checkCookie()">
+
+    <h3>ONCLICK</h3>
+    <div onclick="this.innerHTML = 'KEZEAH DONGON'">REYCO SEGUMA</div>
+
+    <h3>EVENT HANDLERS</h3>
+    <div onclick="eventHandler1(this)">REYCO SEGUMA</div>
+
+    <h3>ASSIGN EVENT USING THE HTML DOM</h3>
+    <div id="A">REYCO SEGUMA</div>
+
+    <h3>ONLOAD AND ON ONUNLOAD</h3>
+    <div id="B"></div>
+
+    <h3>ONCHANGE EVENT</h3>
+    <input type="text" onchange="updateName1(this.value)">
+    <div>NAME: <span id="C"></span></div>
+
+    <h3>ONKEYDOWN EVENT</h3>
+    <input type="text" onkeydown="updateName2(this.value)">
+    <div>NAME: <span id="D"></span></div>
+
+    <h3>ONKEYPRESS EVENT</h3>
+    <input type="text" onkeypress="updateName3(this.value)">
+    <div>NAME: <span id="E"></span></div>
+
+    <h3>ONMOUSEOVER AND ONMOUSEOUT</h3>
+    <div onmouseover="updateElementOnOver(this)" onmouseout="updateElementOnOut(this)">NOT OVER ME</div>
+
+    <h3>ONMOUSEDOWN AND ONMOUSEUP</h3>
+    <div onmousedown="updateElementOnDown(this)" onmouseup="updateElementOnUp(this)">MOUSE UP</div>
+
+    <script type="text/javascript">
+    /*
+    ## REACTING TO EVENTS
+    - Javascript can be executed when an event occurs.
+
+    HTML EVENTS
+    - user click
+    - web page has loaded
+    - image has been loaded
+    - mouse movement over element
+    - input field is changed
+    - html form is submitted
+    - key strokes
+    */
+
+    // EVENT HANDLER
+    function eventHandler1(element) {
+      console.log(element);
+      element.innerHTML = "KEZEAH DONGON";
+    }
+
+    // ASSIGN EVENT USING THE HTML DOM
+    const a = document.getElementById("A");
+    a.onclick = function() {
+      a.innerHTML = "KEZEAH DONGON"
+    };
+
+    // ONLOAD AND ONUNLOAD
+    // triggers when user enters ang leaves the page
+    // onload can be used to check the visitors browser type and version
+    // can be used to deal with cookies
+    // works only on body
+    const b = document.getElementById('B');
+    function checkCookie() {
+      if(navigator.cookieEnabled == true) {
+        b.innerHTML = "COOKIE ENABLED - B1";
+      } else {
+        b.innerHTML = "COOKIE DISABLED - B1";
+      }
+    }
+    // ONLOAD BY ELEMENT
+    // THIS WILL OVERRIDE THE HTML ONLOAD EVENT
+    document.getElementsByTagName('body')[0].onload = function() {
+      if(navigator.cookieEnabled == true) {
+        b.innerHTML = "COOKIE ENABLED - B2";
+      } else {
+        b.innerHTML = "COOKIE DISABLED - B2";
+      }
+    }
+
+    // ONCHANGE
+    function updateName1(value) { document.getElementById('C').innerHTML = value; }
+    // ONKEYDOWN
+    function updateName2(value) { document.getElementById('D').innerHTML = value; }
+    // ONKEYPRESS
+    function updateName3(value) { document.getElementById('E').innerHTML = value; }
+    // ONMOUSEOVER
+    function updateElementOnOver(element) { element.innerHTML = 'OVER ME' }
+    // ONMOUSEOUT
+    function updateElementOnOut(element) { element.innerHTML = 'NOT OVER ME' }
+    // ONMOUSEDOWN
+    function updateElementOnDown(element) { element.innerHTML = 'MOUSE DOWN' }
+    // ONMOUSEUP
+    function updateElementOnUp(element) { element.innerHTML = 'MOUSE UP' }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML</title>
+  </head>
+  <body>
+
+    <div id="A"></div>
+    <script>
+    // WRITE DIRECTLY TO HTML OUTPUT
+    document.write(Date());
+    </script>
+    <img id="B">
+
+    <script type="text/javascript">
+    // EASIEST WAY TO MODIFY CONTENT OF AN HTML IS BY USING THE innerHTML property.
+    const a = document.getElementById("A");
+    a.innerHTML = "SAMPLE1"
+
+    // CHANGING THE ATTRIBUTE VALUE
+    const b = document.getElementById("B");
+    b.src = "files/1550793009752.jpg";
+    </script>
+  </body>
+</html>
