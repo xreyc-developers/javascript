@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>COLLECTION</title>
+  </head>
+  <body>
+
+    <h3>NODE COLLECTION</h3>
+    <div class="A">
+      <p id="p1">This is a paragraph 1</p>
+      <p id="p2">This is a paragraph 2</p>
+      <p id="p3">This is a paragraph 3</p>
+      <p id="p4">This is a paragraph 4</p>
+      <p id="p5">This is a paragraph 5</p>
+    </div>
+
+    <script type="text/javascript">
+    /*
+      HTMLCollection
+      - is an object that are array-like list of HTML element
+
+      getElementsByTagName returns a HTMLCollection object
+    */
+
+    // GET ELEMENT INSIDE HTML COLLECTION
+    const a = document.getElementsByTagName('p');
+    console.log(a);
+    console.log(a[0]); // <p id="p1">This is a paragraph 1</p>
+
+    // GET COLLECTION LENGTH
+    console.log(a.length); // 5
+
+    // SET STYLE TO ALl
+    for (var i = 0; i < a.length; i++) {
+      a[i].style.color = "red";
+    }
+
+    </script>
+  </body>
+</html>

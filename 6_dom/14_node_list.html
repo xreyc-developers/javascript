@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>NODE LIST</title>
+  </head>
+  <body>
+
+    <h3>NODE COLLECTION</h3>
+    <div class="A">
+      <p id="p1">This is a paragraph 1</p>
+      <p id="p2">This is a paragraph 2</p>
+      <p id="p3">This is a paragraph 3</p>
+      <p id="p4">This is a paragraph 4</p>
+      <p id="p5">This is a paragraph 5</p>
+    </div>
+
+    <script type="text/javascript">
+    /*
+      NODE LIST
+      - is a collection of nodes extracted from a document
+      - is almost the same as an HTMLCollection
+      - some older browser returns NodeList object instead of HTMLCollection for
+      methods like getElementsByClassName()
+      - all browser returns nodelist for property ChildNodes
+      - most browser returns a NodeList object for method querySelectorAll()
+
+      DIFFERENCE BETWEEK HTMLCOLLECTION AND NODELIST
+      - HTMLCollection is a collection of HTML element
+      - NodeList is a colletion of document nodes
+      - A NodeList and an HTML collection is very much the same thing.
+      - Both an HTMLCollection object and a NodeList object is an array-like list (collection) of objects.
+      - Both have a length property defining the number of items in the list (collection).
+      - Both provide an index (0, 1, 2, 3, 4, ...) to access each item like an array.
+      - HTMLCollection items can be accessed by their name, id, or index number.
+      - NodeList items can only be accessed by their index number.
+      - Only the NodeList object can contain attribute nodes and text nodes.
+
+      ## A node list is not an array!
+      - A node list may look like an array, but it is not.
+      - You can loop through the node list and refer to its nodes like an array.
+      - However, you cannot use Array Methods, like valueOf(), push(), pop(), or join() on a node list.
+    */
+    const nodeList = document.querySelectorAll('p');
+    console.log(nodeList);
+
+    </script>
+  </body>
+</html>

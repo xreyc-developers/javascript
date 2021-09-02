@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>NODES</title>
+  </head>
+  <body>
+
+    <h3>CREATING HTML ELEMENTS (NODES)</h3>
+    <div id="A">
+      <p>content1</p>
+    </div>
+
+    <h3>NODE CRUD</h3>
+    <div id="div1">
+      <p id="p1">This is a paragraph 1</p>
+      <p id="p3">This is a paragraph 3</p>
+      <p id="p4">This is a paragraph 4</p>
+      <p id="p5">This is a paragraph 5</p>
+    </div>
+
+    <script type="text/javascript">
+    /*
+    ## NODE CRUD OPERATION
+    - CREATE AND INSERTBEFORE
+    - REMOVE ELEMENT AND REMOVECHILD ELEMENT
+    - REPLACE ELEMENT
+
+    SYNTAX
+    ## CREATE NEW ELEMENT
+    document.createElement(tag)
+    ## CREATE TEXT NODE
+    document.createText(Text)
+    ## APPEND CHILD
+    parentElement.appendChild(element);
+    ## INSERT BEFORE
+    parentElement.insertBefore(ElementToInsert,BeforeElement)
+    ## REMOVE ELEMENT
+    element.remove()
+    ## REMOVE CHILD ELEMENT
+    parentElement.removeChild(childElement)
+    ## REPLACE ELEMENT
+    parentElement.replaceChild(element, elementToReplace)
+    */
+
+    // CREATING HTML ELEMENTS
+    const newParagraph = document.createElement('p');
+    const nodeText = document.createTextNode('content2');
+    newParagraph.appendChild(nodeText);
+    // APPEND CREATED NODE TO THE SELECTED ELEMENT
+    const element = document.getElementById('A');
+    element.appendChild(newParagraph);
+
+    // INSERTING NEW ELEMENT BEFORE ANOTHER ELEMENT
+    // insertBefore() - Add new HTML element
+    // Create new element
+    const p2 = document.createElement('p');
+    const p1Content = document.createTextNode('This is a paragraph 2 (Inserted)');
+    p2.appendChild(p1Content);
+    // Insert new element before p3
+    const e1 = document.getElementById('div1');
+    const p3 = document.getElementById('p3');
+    e1.insertBefore(p2,p3);
+
+    // REMOVING ELEMENT
+    p3.remove(); // Removes: <p id="p3">This is a paragraph 3</p>
+
+    // REMOVING CHILD NODE
+    const p1 = document.getElementById('p1');
+    e1.removeChild(p1); // Removes: <p id="p1">This is a paragraph 1</p>
+
+    // REPLACE ELEMENT
+    const p6 = document.createElement('p');
+    const p6Content = document.createTextNode('This is a paragraph 6 (Replacing paragraph 5)');
+    p6.appendChild(p6Content);
+
+    const p5 = document.getElementById('p5');
+    e1.replaceChild(p6, p5);
+
+    </script>
+  </body>
+</html>
