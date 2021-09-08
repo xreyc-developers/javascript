@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>NAVIGATOR</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      /*
+      NAVIGATOR
+      - contains information about the visitor's browser
+      - can be used without the 'window' prefix
+
+      WINDOWS NAVIGATOR OBEJECT
+      - navigator.appName (application name of the browser)
+      - navigator.appCodeName (code name of the browser)
+      - navigator.platform (operating system)
+
+      WARNING
+      The information from the navigator object can often be misleading, and
+      should not be used to detect browser versions because:
+      - Different browsers can use the same name
+      - The navigator data can be changed by the browser owner
+      - Some browsers misidentify themselves to bypass site tests
+      - Browsers cannot report new operating systems, released later than the browser
+
+      */
+
+      console.log(navigator); // Navigator {}
+      console.log(navigator.appName); // Netscape
+      console.log(navigator.appCodeName); // Mozilla
+      console.log(navigator.platform); // Linux x86_64
+      // BROWSER COOKIES
+      console.log(navigator.cookieEnabled); // true
+      // BROWSER ENGINE
+      console.log(navigator.product); // Gecko
+      // BROWSER VERSION
+      console.log(navigator.appVersion); // 5.9 (X11)
+      // BROWSER AGENT
+      // USER AGENT SENT BY THE BROWSER TO THE SERVER
+      console.log(navigator.userAgent); // Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0
+      // BROWSER LANGUAGE
+      console.log(navigator.language); // en-US
+      // IS ONLINE
+      console.log(navigator.onLine); // true
+      // IS JAVA ENABLE
+      console.log(navigator.javaEnabled()); // false
+    </script>
+  </body>
+</html>

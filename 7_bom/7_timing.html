@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TIMING</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+    /*
+    TIMING EVENT
+    - setTimeout(function, milliseconds)
+    - setInterval(function, milliseconds)
+    */
+
+    // SET TIMEOUT
+    setTimeout(() => {
+      console.log("TIMEOUT DONE");
+    }, 1000)
+
+    // STOP TIMEOUT
+    const a = setTimeout(() => {
+      console.log("TIMEOUT DONE");
+    }, 3000);
+    clearTimeout(a);
+
+    // SET INTERVAL
+    setInterval(() => {
+      console.log("INTERVAL TRIGGERED");
+    }, 1000)
+
+    // STOP INTERVAL
+    const b = setInterval(() => {
+      console.log("INTERVAL 2 TRIGGERED");
+    }, 1000);
+    clearInterval(b);
+
+    const c = setInterval(() => {
+      let c1 = 5;
+      if(c1 == 5) {
+        console.log("INTERVAL 3 STOPPED");
+        clearInterval(c);
+      }
+      console.log("INTERVAL 3 TRIGGERED");
+    }, 1000)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>LOCATION</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+      WINDOW LOCATION
+      - used to get the current page address (URL) and to redirect the browser to a new page.
+      */
+
+      // WINDOW.LOCATION
+      console.log('WINDOW.LOCATION', window.location);
+      console.log('WINDOW.LOCATION', window.location.href); // https://www.influder.com/js/js_window_location.asp
+      console.log('WINDOW.LOCATION', window.location.hostname); // www.influder.com
+      console.log('WINDOW.LOCATION', window.location.pathname); // /js/js_window_location.asp
+      console.log('WINDOW.LOCATION', window.location.protocol); // https:
+      console.log('WINDOW.LOCATION', window.location.port); // PORT NUMBER
+
+      // WINDOWS.ASSIGN(url)
+      // opens a new document/navigate to url
+      function newDoc() {
+        window.location.assign("https://www.influder.com")
+      }
+      //console.log('WINDOW.LOCATION', newDoc());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>HISTORY</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      /*
+      ## HISTORY PROPERTIES
+      length - return number of URLs from history list
+
+      ## HISTORY METHODS
+      back()      previous
+      forward()   next
+      go()        specific
+      */
+      console.log(window.history);
+
+      // back() - return to previous page
+      function goBack() {
+        window.history.back();
+      }
+
+      // go() - load specific url from history list
+      // go back two pages
+      function goTo() {
+        window.history.go(-2)
+      }
+    </script>
+  </body>
+</html>

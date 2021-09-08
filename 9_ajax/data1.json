@@ -1,0 +1,18 @@
+[
+  {
+    "id": 0,
+    "username": "xreyc",
+    "email": "segumareyco@gmail.com",
+    "name": "Reyco Seguma",
+    "age": 24,
+    "profession": "Software Engineer"
+  },
+  {
+    "id": 1,
+    "username": "kezeah",
+    "email": "dongonkezeah@gmail.com",
+    "name": "Kezeah Dongon",
+    "age": 23,
+    "profession": "Software Engineer"
+  }
+]

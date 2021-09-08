@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>INTRODUCTION</title>
+  </head>
+  <body>
+
+    <h3>AJAX SAMPLE 1</h3>
+    <input type="submit" value="Request From Server" onclick="loadJSON()">
+    <table id="A">
+      <tr>
+        <th>id</th>
+        <th>username</th>
+        <th>email</th>
+        <th>name</th>
+        <th>age</th>
+        <th>profession</th>
+      </tr>
+    </table>
+
+    <script type="text/javascript">
+    /*
+    ## AJAX (Asynchronous Javascript And XML)
+    - is not a programming language
+    - ajax just uses a combination of
+      * XMLHttpRequest
+      * Javascript and HTML DOM
+
+    ## HOW AJAX WORKS
+    - page is loaded first
+    - request data from the server
+    - update the web page without reloading the page
+    - send data to a web server in the background
+    */
+
+    // SAMPLE 1
+    function loadJSON() {
+      const xhttp = new XMLHttpRequest();
+      console.log(xhttp);
+      console.log(xhttp.onload);
+      xhttp.onload = function() {
+        let table = document.getElementById('A');
+        let data = JSON.parse(this.response);
+        for(let i = 0; i < data.length; i++) {
+          let newItem = document.createElement('tr');
+          let itemContent = `<tr>
+          <td>${data[i].id}</td>
+          <td>${data[i].username}</td>
+          <td>${data[i].email}</td>
+          <td>${data[i].name}</td>
+          <td>${data[i].age}</td>
+          <td>${data[i].profession}</td>
+          </tr>`;
+          newItem.innerHTML = itemContent;
+          table.appendChild(newItem);
+        }
+      }
+      xhttp.open("GET", "data1.json", true);
+      xhttp.send()
+    }
+    </script>
+  </body>
+</html>

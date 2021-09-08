@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WEB API INTRO</title>
+  </head>
+  <body>
+
+    <a onclick="getLocation()">LOG LOCATION</a>
+
+    <script type="text/javascript">
+      /*
+      ## WEB API
+      - it can extend browser funtionality
+      - simplify complex function
+      - provide easy syntax for complex code
+
+      ## BROWSER
+      - have set of built-in API to support complex operations, and to help accessing data.
+      Example: Geolocation
+
+      ## THIRD PARTY API
+      - Youtube API - allows you to display videos on a web site
+      - Twitter API - allows display tweet on a website
+      - Facebook API - display Facebook info on a website.
+      */
+
+      function getLocation() {
+        if(navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition)
+        } else {
+          console.log("Geolocation is not enabled or supoorted");
+        }
+      }
+
+      function showPosition(position) {
+        console.log("LATITUDE: ", position.coords.latitude);
+        console.log("LONGTITUDE: ", position.coords.longitude);
+      }
+    </script>
+  </body>
+</html>

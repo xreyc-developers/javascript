@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FORMS</title>
+  </head>
+  <body>
+
+    <input id="input1" type="number" min="100" max="500" required>
+    <input type="submit" value="Validate" onclick="validateInput()">
+
+    <script type="text/javascript">
+      /*
+      ## CONSTRAINT VALIDATION DOM METHODS
+      checkValidity()         returns true if an input element contains valid data
+      setCustomValidity()     sets the validation message property of an input element
+      */
+      // checkValidity
+      function validateInput() {
+        const a = document.getElementById('input1');
+        console.log(a);
+        if(a.checkValidity()) {
+          console.log("INPUT VALID");
+        } else {
+          console.log("INPUT INVALID");
+        }
+      }
+
+      /*
+      ## CONTRAIN VALIDATION DOM PROPERTIES
+      validity            Contains boolean properties related to validity of an input elements
+      validationMessage   Contains the message a browser will diplay when the validity is false
+      willValidate        Indicate if an input element will be validated
+
+      ## VALIDITY PROPERTIES
+      Property 	          Description
+      customError 	      Set to true, if a custom validity message is set.
+      patternMismatch 	  Set to true, if an element's value does not match its pattern attribute.
+      rangeOverflow 	    Set to true, if an element's value is greater than its max attribute.
+      rangeUnderflow 	    Set to true, if an element's value is less than its min attribute.
+      stepMismatch 	      Set to true, if an element's value is invalid per its step attribute.
+      tooLong 	          Set to true, if an element's value exceeds its maxLength attribute.
+      typeMismatch 	      Set to true, if an element's value is invalid per its type attribute.
+      valueMissing 	      Set to true, if an element (with a required attribute) has no value.
+      valid               Set to true, if an element's value is valid.
+      */
+
+
+
+    </script>
+  </body>
+</html>

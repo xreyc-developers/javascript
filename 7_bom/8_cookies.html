@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>COOKIES</title>
+  </head>
+  <body>
+
+    <h3>CREATE COOKIE</h3>
+    <input value="SET COOKIE 1" type="submit" onclick="setCookie1()">
+    <input value="SET COOKIE 2" type="submit" onclick="setCookie2()">
+    <input value="SET COOKIE 2" type="submit" onclick="setCookie3()">
+
+    <h3>UPDATE COOKIE</h3>
+    <input value="UPDATE COOKIE 4" type="submit" onclick="updateCookie4()">
+
+    <h3>DELETE COOKIE</h3>
+    <input value="DELETE COOKIE 5" type="submit" onclick="deleteCookie5()">
+
+    <script type="text/javascript">
+    /*
+    COOKIES
+    - data stored in small text files
+
+    SERVER AND USER MACHINE CONNECTION
+    - when a server sends a web pages to a browser, the connection is closed after
+    transfer of code is done.
+    - the server forgets everything about the user.
+
+    USER INFORMATION ARE STORED
+    - cookies are created to remember information about the user
+    - when user visit a web page, he/her information is stored on a cookie
+    - when the user request a new webpage from the server, the cookie belong to
+    that web pages are attached to the request by default. that way the server
+    will be able to identify the user.
+    - cookies are always attached to the server request.
+
+    COOKIE FORMAT
+    - cookies are saved in name-value pairs
+    Example: username = xreyc
+    */
+
+    /////////////////// CREATE COOKIE ///////////////////
+    // SET COOKIE
+    function setCookie1() {
+      document.cookie = "username=xreyc;";
+    }
+
+    // SET COOKIE EXPIRATION
+    // by default cookie is deleted when browser is closed
+    function setCookie2() {
+      document.cookie = "username=xreyc; expires=Sat, 05 Sep 2021 12:53:13 GMT";
+    }
+
+    // SET COOKIE PATH
+    // by default cookies belongs to the current page
+    // path must be based on the url directory or page location
+    function setCookie3() {
+      document.cookie = "username=xreyc; expires=Sat, 05 Sep 2021 12:53:13 GMT; path=/";
+    }
+
+    /////////////////// READ COOKIE ///////////////////
+    let a = document.cookie;
+    console.log(a);
+
+    /////////////////// UPDATE COOKIE ///////////////////
+    // updating cookie is same to creating cookie
+    function updateCookie4() {
+      document.cookie = "username=kezeah; expires=Sat, 05 Sep 2021 12:53:13 GMT; path=/";
+    }
+
+    /////////////////// DELETE COOKIE ///////////////////
+    // to delete a cookie, set the expiration data (expires) to past date
+    function deleteCookie5() {
+      document.cookie = "username=xreyc; expires=Sat, 01 Sep 2021 12:53:13 GMT;";
+      document.cookie = "username=xreyc; expires=Sat, 01 Sep 2021 12:53:13 GMT; path=/";
+      document.cookie = "username=kezeah; expires=Sat, 01 Sep 2021 12:53:13 GMT; path=/";
+      document.cookie = "username=xreycdevelopers; expires=Sat, 01 Sep 2021 12:53:13 GMT; path=/home/xreyc";
+    }
+
+    /////////////////// CUSTOM COOKIE FUNCTIONS ///////////////////
+    // DATE OBJECT RECAP
+    // getTime() 	        Get the time (milliseconds since January 1, 1970) // 1630764505861
+    // setTime() 	        Set the time (milliseconds since January 1, 1970)
+    // toUTCString()      Wed, 11 Aug 2021 12:49:58 GMT
+
+    const d = new Date();
+    // 1000 milliseconds = 1 second
+    // 60 seconds = 1 minute
+    // 60 minutes = 1 hour
+    // 24 hours = 1 day
+
+    // CURRENT DATE IN MILLISECONDS
+    const currentTime = d.getTime(); // 1630765209473
+    const timePlus1Day = d.getTime() + 1 * 1000 * 60 * 60 * 24; // 1630851609473
+    console.log(d.toUTCString()); // Sat, 04 Sep 2021 14:22:08 GMT
+    d.setTime(timePlus1Day)
+    console.log(d.toUTCString()); // Sun, 05 Sep 2021 14:22:08 GMT
+
+    // SET COOKIE FUNCTION
+    function setCookieA(cookieName, cookieValue, cookiePath, validityDays) {
+      const cDate = new Date();
+      cDate.setTime(cDate.getTime() + validityDays * 1000 * 60 * 60 * 24);
+      const cookieExpiration = cDate.toUTCString();
+      console.log(cookieExpiration);
+      console.log(cookieName + "=" + cookieValue + ";expires=" + cookieExpiration + ";path=" + cookiePath);
+      document.cookie = cookieName + "=" + cookieValue + ";expires=" + cookieExpiration + ";path=" + cookiePath;
+    }
+    setCookieA("username","xreycdevelopers","/home/xreyc",2);
+
+    // GET COOKIE FUNCTION
+    function getCookieA(cname) {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+    console.log(getCookieA("username")); // xreycdevelopers
+
+    // CHECK COOKIE FUNCTION
+    function checkCookieA() {
+      let username = getCookieA("username");
+      if (username != "") {
+        console.log("Welcome again " + username);
+      } else {
+        setCookieA("username", "kezeah", 365);
+      }
+    }
+    checkCookieA(); // Welcome again xreycdevelopers
+
+    </script>
+  </body>
+</html>

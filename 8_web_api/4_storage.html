@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>STORAGE</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      // LOCAL STORAGE AND SESSION STORAGE
+      // data is saved locally only and cant be read by the server
+      // can saved 10MB of data
+      // saves only text data.
+      // use JSON.stringify(object) to store data
+
+      // COOKIES
+      // can be saved offline but send on server per request
+
+      // DIFFERENCE BETWEEN LOCAL STORAGE ANG SESSION STORAGE
+      // session storage last until closing of window only
+      // local storage doesn't expire
+
+      // STORAGE OBJECT PROPERTIES AND METHODS
+      // key
+      // length
+      // getItem(keyname)
+      // setItem(keyname, value)
+      // removeItem(keyname)
+      // clear()
+
+      ///////////////////// LOCAL STORAGE /////////////////////
+      // It allows you to store, read, add, modify, and delete data items for that domain.
+      // The data is stored with no expiration date, and will not be deleted when the browser is closed.
+      // The data will be available for days, weeks, and years.
+      // SET ITEM
+      //localStorage.setItem("name", "Reyco Seguma");
+      // GET IEM
+      const a = localStorage.getItem("name");
+      console.log(a);
+
+      ///////////////////// SESSION STORAGE /////////////////////
+      // is an object identical to local storage
+      // stores data for one session only
+      // data is deleted when browser is closed
+      // SET ITEM
+      //sessionStorage.setItem("name", "Kezeah Dongon");
+      // GET ITEM
+      const b = sessionStorage.getItem("name");
+      console.log(b);
+
+      // CLEAR ITEM
+      localStorage.clear()
+      sessionStorage.clear()
+    </script>
+  </body>
+</html>

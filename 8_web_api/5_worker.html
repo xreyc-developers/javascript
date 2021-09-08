@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WORKER</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+    /*
+    ## WEB WORKER
+    - is a javascript running in the background, without affecting the performance
+    of the page.
+    - usually used for CPU intensive tasks.
+
+    When executing script in an HTML page, the page becomes unresponsive until
+    script is finished.
+
+    ## CREATE A WORKER
+    new Worker(filename)
+
+    ## RETURN DATA FROM WEB WORKER SCRIPT TO THE PAGE
+    postMessage() - used to post the message back to the HTML.
+
+    ## RECEIVES THE DATA FROM THE WEB WORKER SCRIPT
+    onmessage - event listener
+
+    ## TERMINATE THE WEB WORKER
+    w.terminate()
+
+    ## REUSE A WEB WORKER
+    w = undefined
+    */
+
+    // CHECK WEB WORKER SUPPORT
+    if(typeof(Worker) !== "undefined") {
+      console.log("WEB WORKER IS SUPPORTED");
+    } else {
+      console.log("WEB WORKER IS NOT SUPPORTED");
+    }
+
+    // CREATING A WEB WORKER
+    let w;
+    function startWorker() {
+      if(typeof(w) == "undefined") {
+        w = new Worker("worker.js");
+      }
+      w.onmessage = function(event) {
+        console.log(event.data);
+      }
+    }
+
+    // TERMINATE WEB WORKER
+    function stopWorker() {
+      w.terminate();
+      w = undefined;
+    }
+
+    setTimeout(() => {
+      startWorker();
+    },100);
+    setTimeout(() => {
+      stopWorker();
+    }, 5000)
+
+    </script>
+  </body>
+</html>

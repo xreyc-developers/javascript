@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WINDOW</title>
+  </head>
+  <body>
+
+    <div id="A"></div>
+
+    <script type="text/javascript">
+      /*
+      ## BROWSER OBJECT MODEL (BOM)
+      - allows the Javascript to talk to the browser
+      -Since modern browsers have implemented (almost) the same methods and
+      properties for JavaScript interactivity, it is often referred to,
+      as methods and properties of the BOM.
+
+      ## WINDOWS OBJECT
+      - supported by all browsers
+      - represents the broweser's window
+      - all global Javascript objects, functions and variables automatically
+      become member of the window object.
+      - document object is a window object
+      */
+
+      // DOCUMENT IS A WINDOW OBJECT (IT IS GLOBAL)
+      const a = window.document.getElementById('A');
+      console.log(a); // <div id="A"></div>
+
+      // WINDOW SIZE
+      const b1 = window.innerHeight;
+      const b2 = window.innerWidth;
+      console.log(b1, b2); // 586 1007
+
+      /*
+      OTHER WINDOW METHODS
+      window.open() - open new window
+      window.close() - close current window
+      window.moveTo() - move the current window
+      window.resizeTo() - resize current window
+      */
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>POPUP</title>
+  </head>
+  <body>
+
+    <input value="ALERT BOX" type="button" onclick="onAlert()">
+    <input value="CONFIRM BOX" type="button" onclick="onConfirm()">
+    <input value="PROMPT BOX" type="button" onclick="onPrompt()">
+    <input value="TEXT LINE BREAK" type="button" onclick="onAlert2()">
+
+    <script type="text/javascript">
+      // ALERT BOX
+      // can be used without the 'window' prefix
+      // alert(text)
+      function onAlert() {
+        alert("Hello")
+      }
+
+      // CONFIRM BOX
+      // confirm(text)
+      function onConfirm() {
+        if(confirm("Press ok to continue")) {
+          console.log("PRESSED OK");
+        } else {
+          console.log("PRESSED CANCEL");
+        }
+      }
+
+      // PROMPT BOX
+      // prompt(sometext, InputText)
+      function onPrompt() {
+        let person = prompt("Please enter your name", "Reyco Seguma");
+        if(person == null || person == "") {
+          console.log("PROMPT CANCELLED");
+        } else {
+          console.log("PROMPT ENTERED: " + person);
+        }
+      }
+
+      // MESSAGE LINE BREAK
+      function onAlert2() {
+        alert("Hello\nHow Are You")
+      }
+
+    </script>
+  </body>
+</html>
