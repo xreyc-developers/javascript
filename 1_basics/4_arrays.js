@@ -64,7 +64,7 @@ console.log(c); // ['Influder,''Pentreyc','Treeword']
 let shiftc = c.shift();
 console.log(shiftc); // Influder
 console.log(c); // ['Pentreyc','Treeword']
-// UNSHIFT
+// UNSHIFT - add to the beginning of the array
 let unshiftc = c.unshift('Developers');
 console.log(unshiftc); // 3 (returns the length of the array)
 console.log(c); // ['Developers','Pentreyc','Treeword']
