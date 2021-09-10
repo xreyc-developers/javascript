@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <div id="A"></div>
+    <div id="B"></div>
+
+    <script type="text/javascript">
+      // SET TEXT
+      const a = $('#A');
+      a.text("REYCO SEGUMA")
+      // document.getElementById().textContent
+
+      // GET TEXT CONTENT
+      console.log(a.text()); // REYCO SEGUMA
+
+      // SET HTML CONTENT
+      const b = $('#B');
+      b.html("<p>KEZEAH DONGON</p>");
+      // document.getElementById().innerHTML
+
+      // GET HTML CONTENT
+      console.log(b.html()); // <p>KEZEAH DONGON</p>
+    </script>
+  </body>
+</html>

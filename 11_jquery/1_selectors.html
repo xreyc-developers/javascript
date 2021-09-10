@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SELECTORS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <div id="A"></div>
+    <p></p>
+    <div class="C"></div>
+    <div class="D"></div>
+
+    <script type="text/javascript">
+      // SELECT BY ID
+      const a = $('#A');
+      console.log(a);
+
+      // SELECT BY TAG NAME
+      const b = $('p');
+      console.log(b);
+
+      // SELECT BY CLASSNAME
+      const c = $('.C');
+      console.log(c);
+
+      // SELECT BY CSS SELECTOR
+      const d = $('div.D');
+      console.log(d);
+    </script>
+
+  </body>
+</html>
