@@ -8,7 +8,33 @@
     <script type="text/javascript">
       /*
       ## JSON PARSE
-      
+      - when receiving data from the server, the data is always a string.
+      - to convert string to Javascript Object, we have to use JSON.parse()
+      */
+
+      // JSON OBJECT
+      const sdataA = '{"name":"John", "age":30, "city":"New York"}';
+      const objA = JSON.parse(sdataA);
+      console.log(objA); // Object { name: "John", age: 30, city: "New York" }
+
+      // JSON ARRAY
+      const sdataB = '["Ford", "BMW", "Audi", "Fiat"]';
+      const objB = JSON.parse(sdataB);
+      console.log(objB); // (4) ['Ford', 'BMW', 'Audi', 'Fiat']
+
+      // EXCEPTIONS
+      // dates are not allowed in JSON
+      // if you want to include date on JSON, write it as string.
+      const sdataC = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
+      const objC = JSON.parse(sdataC);
+      objC.birth = new Date(objC.birth);
+      console.log(objC);
+      /* RESULT
+      {
+        birth: Sun Dec 14 1986 08:00:00 GMT+0800 (Taipei Standard Time) {}
+        city: "New York"
+        name: "John"
+      }
       */
     </script>
   </body>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JSON STRINGIFY</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+      ## JSON STRINGIFY
+      - when sending data to the server, the data has to be a string.
+      - to convert object into a string use JSON.stringtify()
+
+      ## DATES
+      - the stringify function will convert Dates to String
+      */
+
+      // JSON OBJECT
+      const objA = { name: "John", age: 30, city: "New York" };
+      const sdataA = JSON.stringify(objA);
+      console.log(sdataA); // '{"name":"John","age":30,"city":"New York"}'
+
+      // JSON ARRAY
+      const objB = [ "John", "Peter", "Sally", "Jane" ];
+      const sdataB = JSON.stringify(objB);
+      console.log(sdataB); // '["John", "Peter", "Sally", "Jane"]'
+
+      // STORING DATA
+      localStorage.setItem("textJSON", sdataA);
+      let localData = localStorage.getItem("textJSON");
+      console.log(localData); // '{"name":"John","age":30,"city":"New York"}'
+      const objC = JSON.parse(localData);
+      console.log(objC); // { name: "John", age: 30, city: "New York" }
+
+
+    </script>
+  </body>
+</html>
