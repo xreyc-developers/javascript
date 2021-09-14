@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // PALINDROME
+      let str = "___eye";
+      let A = str.replace(/[\W_]+/g,"");
+      let B = A.split('').reverse().join('')
+      //console.log(A);
+      //console.log(B);
+      //console.log(A===B);
+
+      // ROMAN NUMERALS
+      function convertToRoman(num) {
+        let RnumRef = {
+          "1": "I",
+          "2": "II",
+          "3": "III",
+          "4": "IV",
+          "5": "V",
+          "6": "VI",
+          "7": "VII",
+          "8": "VIII",
+          "9": "IX",
+          "10": "X",
+          "20": "XX",
+          "30": "XXX",
+          "40": "XL",
+          "50": "L",
+          "60": "LX",
+          "70": "LXX",
+          "80": "LXXX",
+          "90": "XC",
+          "100": "C",
+          "200": "CC",
+          "300": "CCC",
+          "400": "CD",
+          "500": "D",
+          "600": "DC",
+          "700": "DCC",
+          "800": "DCCC",
+          "900": "CM",
+          "1000": "M"
+        }
+        let romanNumeral = "";
+        let splitNum = String(num).split('');
+        let tenToThousand = splitNum.reverse();
+
+        for(let i = 0; i < tenToThousand.length; i++) {
+          if(i == 0) {
+            if(tenToThousand[i] != 0) {
+              romanNumeral = RnumRef[tenToThousand[i]] + romanNumeral;
+            }
+          }
+          else if (i == 1) {
+            if(tenToThousand[i] != 0) {
+              romanNumeral = RnumRef[tenToThousand[i]+"0"] +romanNumeral;
+            }
+          }
+          else if (i == 2) {
+            if(tenToThousand[i] != 0) {
+              romanNumeral = RnumRef[tenToThousand[i]+"00"] + romanNumeral;
+            }
+          }
+          else if (i == 3) {
+            if(tenToThousand[i] != 0) {
+              for(let j = 1; j <= tenToThousand[i]; j++) {
+                romanNumeral = RnumRef["1000"] + romanNumeral;
+              }
+            }
+          }
+        }
+        console.log(romanNumeral);
+        return romanNumeral;
+      }
+
+      //convertToRoman(2014)
+      //console.log(convertToRoman(400));
+
+      // CAESARS CIPHER
+function rot13(str) {
+  let codeCipherRef = {
+    'A': 'N',
+    'B': 'O',
+    'C': 'P',
+    'D': 'Q',
+    'E': 'R',
+    'F': 'S',
+    'G': 'T',
+    'H': 'U',
+    'I': 'V',
+    'J': 'W',
+    'K': 'X',
+    'L': 'Y',
+    'M': 'Z',
+    'N': 'A',
+    'O': 'B',
+    'P': 'C',
+    'Q': 'D',
+    'R': 'E',
+    'S': 'F',
+    'T': 'G',
+    'U': 'H',
+    'V': 'I',
+    'W': 'J',
+    'X': 'K',
+    'Y': 'L',
+    'Z': 'M'
+  };
+
+  let cipheredCode = "";
+  for(let i = 0; i < str.length; i++) {
+    if(codeCipherRef[str[i]] == undefined) {
+      cipheredCode = cipheredCode + str[i];
+    } else {
+      cipheredCode = cipheredCode + codeCipherRef[str[i]];
+    }
+  }
+  return cipheredCode;
+}
+
+//console.log(rot13("SERR CVMMN!"));
+
+// TELEPHONE NUMBER
+function checkCashRegister(price, cash, cid) {
+    let currencyRef = [
+      { des: 'ONE HUNDRED', amt: 100},
+      { des: 'TWENTY', amt: 20},
+      { des: 'TEN', amt: 10},
+      { des: 'FIVE', amt: 5},
+      { des: 'ONE', amt: 1},
+      { des: 'QUARTER', amt: 0.25},
+      { des: 'DIME', amt: 0.1},
+      { des: 'NICKEL', amt: 0.05},
+      { des: 'PENNY', amt: 0.01}
+    ];
+
+    let FINALRESULT = {  status: null, change: []};
+    let CHANGE = cash - price;
+    let REGISTER = cid.reduce(function(acc, curr) {
+        acc.total += curr[1];
+        acc[curr[0]] = curr[1];
+        return acc;
+      },
+      {total: 0}
+    );
+
+    if(REGISTER.total < CHANGE) {
+      FINALRESULT.status = 'INSUFFICIENT_FUNDS';
+      return FINALRESULT;
+    }
+
+    if(REGISTER.total === CHANGE) {
+      FINALRESULT.status = 'CLOSED';
+      FINALRESULT.change = cid;
+      return FINALRESULT;
+    }
+
+    var cArr = currencyRef.reduce(function(acc, curr) {
+      var val = 0;
+
+      while(REGISTER[curr.des] > 0 && CHANGE >= curr.amt) {
+        CHANGE -= curr.amt;
+        REGISTER[curr.des] -= curr.amt;
+        val += curr.amt;
+        CHANGE = Math.round(CHANGE * 100) / 100;
+      }
+
+      if(val > 0) {
+        acc.push([ curr.des, val ]);
+      }
+
+      return acc;
+    }, []
+  );
+
+  if(cArr.length < 1 || CHANGE > 0) {
+    FINALRESULT.status = 'INSUFFICIENT_FUNDS';
+    return FINALRESULT;
+  }
+
+  FINALRESULT.status = 'OPEN';
+  FINALRESULT.change = cArr;
+  return FINALRESULT;
+}
+
+
+
+const rr = checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
+console.log(rr);
+    </script>
+  </body>
+</html>
