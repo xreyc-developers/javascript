@@ -8,14 +8,26 @@
     <script type="text/javascript">
       /*
       ## LIFECYCLES OF AN HTML HAS 3 IMPORTANT EVENT
+      SYNTAX:   document.addEventListener("DOMContentLoaded", () => {});
       - DOMContentLoaded - the browser fully loaded HTML, and the DOM tree is
       built, but external resources like pictures <img> and stylesheets may not
       yet have loaded.
+      - when browser processes an HTML-document and comes across <script> tag,
+      it needs to execute before continuing building the DOM.
+      - it waits until the DOM and scripts are done loaded, except external resource
+      like image.
 
-      - load - not only HTML is loaded, but also all the external
-      resources: images, styles etc.
+      - load - not only HTML is loaded, but also all the external resources: images, styles etc.
+      - load event on the window object triggers when the whole page is loaded including styles,
+      images and other resources. This event is available via the onload property.
+      SYNTAX: window.onload
 
-      - beforeunload/unload – the user is leaving the page.
+      - unload – the user is leaving the page.
+      - event is when the user leaves, and we’d like to save the data on our server.
+      SYNTAX: window.addEventListener("unload", function() {});
+
+      - beforeunload - if a visitor initiated navigation away from the page or tries
+      to close the window, the beforeunload handler asks for additional confirmation.
 
       ## EACH EVENT MAYBE USEFUL
       - DOMContentLoaded event - DOM is ready, so the handler can lookup DOM nodes,
@@ -31,10 +43,16 @@
       such as sending out statistics.
       */
 
-      // DOMContentLoaded
-      document.addEventListener("DOMContentLoaded", () => {})
-      // 
+      // readyState (BEST PRACTICE)
+      function work() { /*...*/ }
 
+      if (document.readyState == 'loading') {
+        // still loading, wait for the event
+        document.addEventListener('DOMContentLoaded', work);
+      } else {
+        // DOM is ready!
+        work();
+      }
     </script>
   </body>
 </html>
