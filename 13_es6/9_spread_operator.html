@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SPREAD OPERATOR</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      "use strict"
+      const a = [1,2,3];
+      const b = [4,5,6];
+
+      const c = a.concat(b);
+      console.log(c); // [1,2,3,4,5,6]
+
+      // SPREAD OPERATOR ON ARRAY
+      // represented by 3 dots
+      const d = [...a,...b];
+      console.log(d); // [1,2,3,4,5,6]
+      // ADDING OTHER ELEMENTS
+      const e = [...a,'HI',...c,'HELLO'];
+      console.log(e); // [1,2,3,'HI',3,4,5,'HELLO']
+
+      // SPREAD OPERATOR ON OBJECT
+      const f = { a: 'Hello', b: 'Hi' }
+      const g = { c: 'Hello', d: 'Hi' }
+      const h = {...f,...g}
+      console.log(h); // { a:"Hello", b:"Hi", c:"Hello", d:"Hi" }
+      // ADDING ANOTHER ELEMENTS
+      const i = {...f,...g, e: function() {}}
+      console.log(i); // { a:"Hello", b:"Hi", c:"Hello", d:"Hi", e: f}
+
+      // SPREAD OBJECT ON ARRAY - ERROR
+      //const x = [...f]
+
+      // SPREAD ARRAY ON OBJECT
+      const j = {...a};
+      console.log(j); // { "0": 1, "1": 2, "2": 3 }
+
+      // NESTED SPREAD OPERATOR
+      const k = [...[...a,...b]]
+      console.log(k); // [1,2,3,4,5,6]
+
+      // ARRAY ANG OBJECT
+      const l = {...[...a,...b]};
+      console.log(l); // { "0": 1, "1": 2, "2": 3, "3": 4, "4": 5, "5": 6 }
+
+    </script>
+  </body>
+</html>

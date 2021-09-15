@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CLASSES</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      "use strict"
+      class Person {
+        constructor(name) {
+          this.name = name;
+        }
+        // all outside the constructor goes to the prototype chain
+        walk() {
+          console.log('Walk');
+        }
+      }
+      const person = new Person('Reyco');
+      console.log(person); // { name: 'Reyco'}
+      person.walk(); // Walk
+
+      // INHERITANCE
+      class Teacher extends Person {
+        constructor(name, degree) {
+          // calling the constructor of the parent class is mandatory
+          super(name);
+          this.degree = degree;
+        }
+        teach() {
+          console.log(this.name, this.degree);
+        }
+      }
+      const teacher = new Teacher('Kezeah','COMP-E');
+      teacher.walk(); // Walk (PROTOTYPE IS INHERITED)
+      teacher.teach(); // Kezeah COMP-E
+    </script>
+  </body>
+</html>
