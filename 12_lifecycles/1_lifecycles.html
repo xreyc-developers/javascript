@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>DOMContentLoaded</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+      ## LIFECYCLES OF AN HTML HAS 3 IMPORTANT EVENT
+      - DOMContentLoaded - the browser fully loaded HTML, and the DOM tree is
+      built, but external resources like pictures <img> and stylesheets may not
+      yet have loaded.
+
+      - load - not only HTML is loaded, but also all the external
+      resources: images, styles etc.
+
+      - beforeunload/unload – the user is leaving the page.
+
+      ## EACH EVENT MAYBE USEFUL
+      - DOMContentLoaded event - DOM is ready, so the handler can lookup DOM nodes,
+      initialize the iterface.
+
+      - load event - external resources are loaded, so styles are applied, image
+      sizes are known etc.
+
+      - beforeunload event - the user is leaving: we can check if the user saved
+      the changes and ask them when they really want to leave
+
+      - unload event - the user almost left, but we still can initiate some operation,
+      such as sending out statistics.
+      */
+
+      // DOMContentLoaded
+      document.addEventListener("DOMContentLoaded", () => {})
+      // 
+
+    </script>
+  </body>
+</html>
