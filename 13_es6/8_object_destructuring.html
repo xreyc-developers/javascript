@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>OBJECT DESTRUCTURING</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      "use strict"
+      const address = {
+        street: 'Mabini',
+        city: 'Koronadal',
+        country: 'Philippines'
+      }
+
+      // ES5
+      const streetA = address.street;
+      const cityA = address.city;
+      const countryA = address.country
+
+
+      // ES6
+      const { street, city, country } = address;
+      console.log(street, city, country);
+
+      // ALIAS
+      const { street: streetB, city: cityB, country: countryB } = address;
+      console.log(streetB, cityB, countryB);
+
+      // DIRECT OBJECT
+      const { street: streetC, city: cityC, country: countryC } = {
+        street: 'Mabini',
+        city: 'Koronadal',
+        country: 'Philippines'
+      }
+      console.log(streetC, cityC, countryC);
+    </script>
+  </body>
+</html>

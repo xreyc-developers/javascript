@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ARROW FUNCTION AND THIS</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      "use strict"
+      const person = {
+        talk() {
+          console.log(this);
+        },
+        walk: function() {
+          console.log(this);
+        },
+        speak() {
+          setTimeout(function() { // THIS IS NOT A PART OF ANY OBJECT
+            console.log(this); // refers to the window object
+          }, 1000)
+        },
+        sing() {
+          const self = this;
+          setTimeout(function() { // THIS IS NOT A PART OF ANY OBJECT
+            console.log(self);
+          }, 1000)
+        },
+        sang() {
+          setTimeout(() => { // THIS IS NOT A PART OF ANY OBJECT
+            console.log(this);
+          }, 1000)
+        }
+      }
+      person.talk(); // {talk: f, walk: f, speak: f, sing: f, sang: f}
+      person.walk(); // {talk: f, walk: f, speak: f, sing: f, sang: f}
+      person.speak(); // Window Object
+      person.sing(); // {talk: f, walk: f, speak: f, sing: f, sang: f}
+      person.sang(); // {talk: f, walk: f, speak: f, sing: f, sang: f}
+    </script>
+  </body>
+</html>

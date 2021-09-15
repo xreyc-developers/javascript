@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>THIS</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      "use strict"
+      // this - returns a reference to the current object
+      const person = {
+        name: 'Reyco',
+        walk() {
+          console.log(this);
+        }
+      }
+
+      person.walk();
+
+      const walk = person.walk;
+      walk(); // undefined (undefined on strict mode)
+      // Window object on non strict mode
+    </script>
+  </body>
+</html>

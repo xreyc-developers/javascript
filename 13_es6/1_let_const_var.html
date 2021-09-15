@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>LET,CONST AND VAR</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // var - function scoped
+      console.log(a); // undefined but not an error
+      var a = "Hello";
+
+      // let - block scoped
+      // cannot be redeclared
+      // console.log(b); // ERROR
+      let b = "Hello";
+
+      // const - block scoped
+      // cannot be redeclared
+      // console.log(c); // ERROR
+      const c = "Hello";
+
+      // let vs const
+      let d = "Hello";
+      d = "H";
+      console.log(d); // H
+
+      const e = "Hello";
+      // e = "H"; // ERROR
+      console.log(e); // Hello
+    </script>
+  </body>
+</html>

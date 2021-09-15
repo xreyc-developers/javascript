@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>OBJECT</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      const person = {
+        name: 'Reyco',
+        walk: function() {}, // ES5
+        talk() {} // ES6
+      }
+
+      // If you know what to access ahead of time
+      // USE THE DOT NOTATION
+      person.talk()
+
+      // IF NOT
+      const userInput = 'name';
+      person[userInput];
+    </script>
+  </body>
+</html>
