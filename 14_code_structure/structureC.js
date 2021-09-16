@@ -39,10 +39,9 @@ const APP = (function() {
   }
 
   return {
-    getData,
     today,
     KEY
   }
 })()
 
-console.log(APP.KEY);
+console.log(APP.today);
